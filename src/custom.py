@@ -1,38 +1,10 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Nav Menu</title>
-    <style>
-        /* Aquí va tu CSS para el menú de navegación */
-    </style>
-</head>
-<body>
-    <nav id="navbarSupportedContent">
-        <!-- Contenido del menú de navegación -->
-    </nav>
-    <button class="custom_menu-btn">Toggle Menu</button>
-    <div id="displayDate"></div>
+from flask import Flask, render_template
 
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script>
-        $(document).ready(function() {
-            var nav = $("#navbarSupportedContent");
-            var btn = $(".custom_menu-btn");
-            
-            btn.click(function(e) {
-                e.preventDefault();
-                nav.toggleClass("lg_nav-toggle");
-                $(".custom_menu-btn").toggleClass("menu_btn-style");
-            });
+app = Flask(__name__)
 
-            function getCurrentYear() {
-                var d = new Date();
-                var currentYear = d.getFullYear();
-                $("#displayDate").html(currentYear);
-            }
+@app.route('/')
+def index():
+    return render_template('index.html')
 
-            getCurrentYear();
-        });
-    </script>
-</body>
-</html>
+if __name__ == '__main__':
+    app.run(debug=True)
