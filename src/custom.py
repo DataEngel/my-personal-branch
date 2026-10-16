@@ -5,7 +5,7 @@ from flask import Flask, abort, send_from_directory
 
 
 BASE_DIR = Path(__file__).resolve().parent.parent
-PAGES = {"index.html", "about.html", "category.html", "work.html"}
+PAGES = {"index.html", "about.html", "category.html", "work.html", "games.html"}
 PUBLIC_DIRECTORIES = {"css", "images", "js"}
 
 app = Flask(__name__, static_folder=None)

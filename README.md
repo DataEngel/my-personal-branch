@@ -1,6 +1,6 @@
 # Miguel Angel Velazquez Romero
 
-Sitio personal de presentación profesional para MLOps y Data Engineering.
+Sitio personal de presentación profesional para MLOps y Data Engineering, con una tienda independiente para publicar videojuegos creados con Unity.
 
 ## Ejecutar localmente
 
@@ -13,6 +13,8 @@ FLASK_DEBUG=1 python src/custom.py
 
 Abre <http://localhost:5000>.
 
+La tienda de videojuegos está en <http://localhost:5000/games.html>.
+
 ## Ejecutar con Docker
 
 La imagen usa `python:3.12-slim` y ejecuta Flask como un usuario sin privilegios.
@@ -22,6 +24,8 @@ docker compose up --build
 ```
 
 Abre <http://localhost:5000>.
+
+La tienda de videojuegos está en <http://localhost:5000/games.html>.
 
 Para detener el contenedor:
 
