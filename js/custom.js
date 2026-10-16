@@ -1,20 +1,26 @@
-// nav menu style
-var nav = $("#navbarSupportedContent");
-var btn = $(".custom_menu-btn");
-btn.click
-btn.click(function (e) {
+document.addEventListener("DOMContentLoaded", function () {
+  const toggle = document.querySelector(".nav-toggle");
+  const nav = document.querySelector("#site-nav");
 
-    e.preventDefault();
-    nav.toggleClass("lg_nav-toggle");
-    document.querySelector(".custom_menu-btn").classList.toggle("menu_btn-style")
+  if (toggle && nav) {
+    toggle.addEventListener("click", function () {
+      const isOpen = toggle.classList.toggle("is-open");
+      nav.classList.toggle("is-open", isOpen);
+      toggle.setAttribute("aria-expanded", String(isOpen));
+      toggle.setAttribute("aria-label", isOpen ? "Cerrar menú" : "Abrir menú");
+    });
+
+    nav.querySelectorAll("a").forEach(function (link) {
+      link.addEventListener("click", function () {
+        toggle.classList.remove("is-open");
+        nav.classList.remove("is-open");
+        toggle.setAttribute("aria-expanded", "false");
+        toggle.setAttribute("aria-label", "Abrir menú");
+      });
+    });
+  }
+
+  document.querySelectorAll("[data-year]").forEach(function (element) {
+    element.textContent = new Date().getFullYear();
+  });
 });
-
-
-function getCurrentYear() {
-    var d = new Date();
-    var currentYear = d.getFullYear()
-
-    $("#displayDate").html(currentYear);
-}
-
-getCurrentYear();
